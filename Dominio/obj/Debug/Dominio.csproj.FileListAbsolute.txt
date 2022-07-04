@@ -1,0 +1,6 @@
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Dominio\bin\Debug\Dominio.dll
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Dominio\bin\Debug\Dominio.pdb
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Dominio\obj\Debug\Dominio.dll
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Dominio\obj\Debug\Dominio.pdb

@@ -1,0 +1,9 @@
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Negocio\bin\Debug\Negocio.dll
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Negocio\bin\Debug\Negocio.pdb
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Negocio\bin\Debug\Dominio.dll
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Negocio\bin\Debug\Dominio.pdb
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Negocio\obj\Debug\Negocio.dll
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Negocio\obj\Debug\Negocio.pdb

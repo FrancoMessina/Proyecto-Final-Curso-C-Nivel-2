@@ -1,0 +1,17 @@
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.csproj.AssemblyReference.cache
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.csproj.SuggestedBindingRedirects.cache
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.frmMenu.resources
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\bin\Debug\Vista.exe.config
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\bin\Debug\Vista.exe
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\bin\Debug\Vista.pdb
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\bin\Debug\Dominio.dll
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\bin\Debug\Negocio.dll
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\bin\Debug\Dominio.pdb
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\bin\Debug\Negocio.pdb
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.csproj.CopyComplete
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.exe
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.pdb
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.frmNuevoArticulo.resources
