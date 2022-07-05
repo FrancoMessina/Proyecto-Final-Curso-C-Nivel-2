@@ -15,10 +15,12 @@ namespace Vista
     public partial class frmMenu : Form
     {
         private ArticuloNegocio negocio;
+        private List<Articulo> listaArticulos;
         public frmMenu()
         {
             InitializeComponent();
             this.negocio = new ArticuloNegocio();
+            this.listaArticulos = new List<Articulo>();
         }
 
         private void frmMenu_Load(object sender, EventArgs e)
@@ -37,10 +39,11 @@ namespace Vista
         {
             try
             {
-                dgvArticulos.DataSource = null;
-                dgvArticulos.DataSource = this.negocio.Listar();
-                dgvArticulos.Columns["Id"].Visible = false;
-                dgvArticulos.Columns["UrlImagen"].Visible = false;
+                this.dgvArticulos.DataSource = null;
+                this.listaArticulos = this.negocio.Listar();
+                this.dgvArticulos.DataSource = listaArticulos;
+                this.CargarImagen(listaArticulos[0].UrlImagen);
+                this.OcultarColumnas();
             }
             catch (AccesoDatosException ex)
             {
@@ -135,6 +138,25 @@ namespace Vista
             {
                 throw ex;
             }
+        }
+
+        private void txtFiltroNombre_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtFiltroNombre.Text;
+            if (filtro != string.Empty)
+                listaFiltrada = listaArticulos.FindAll((x) => x.Nombre.ToUpper().Contains(filtro.ToUpper()));
+            else
+                listaFiltrada = listaArticulos;
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaFiltrada;
+            this.OcultarColumnas();
+        }
+        private void OcultarColumnas()
+        {
+            dgvArticulos.Columns["UrlImagen"].Visible = false;
+            dgvArticulos.Columns["Id"].Visible = false;
         }
     }
 }
