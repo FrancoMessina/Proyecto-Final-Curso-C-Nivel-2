@@ -111,5 +111,30 @@ namespace Vista
             }
             return true;
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ValidarArticuloSeleccionado())
+                {
+                    if (MessageBox.Show("Quieres Eliminar?","Eliminar Articulo",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        Articulo articulo = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                        string mensaje = negocio.EliminarArticulo(articulo.Id);
+                        MessageBox.Show(mensaje, "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.ActualizarLista();
+                    }  
+                }
+            }
+            catch (ArticuloNoExistenteException ex)
+            {
+                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
