@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Negocio;
 using Dominio;
 using Negocio.Excepciones;
+using Negocio.ValidacionesArticulo;
 namespace Vista
 {
     public partial class frmMenu : Form
@@ -28,6 +29,7 @@ namespace Vista
             try
             {
                 this.ActualizarLista();
+                this.CargarCampoComboBox();
             }
             catch (AccesoDatosException ex)
             {
@@ -97,7 +99,7 @@ namespace Vista
                     this.ActualizarLista();
                 }
             }
-            catch(ArticuloNoExistenteException ex)
+            catch (ArticuloNoExistenteException ex)
             {
                 MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -121,13 +123,13 @@ namespace Vista
             {
                 if (ValidarArticuloSeleccionado())
                 {
-                    if (MessageBox.Show("Quieres Eliminar?","Eliminar Articulo",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Quieres Eliminar?", "Eliminar Articulo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         Articulo articulo = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                         string mensaje = negocio.EliminarArticulo(articulo.Id);
                         MessageBox.Show(mensaje, "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.ActualizarLista();
-                    }  
+                    }
                 }
             }
             catch (ArticuloNoExistenteException ex)
@@ -157,6 +159,98 @@ namespace Vista
         {
             dgvArticulos.Columns["UrlImagen"].Visible = false;
             dgvArticulos.Columns["Id"].Visible = false;
+        }
+
+        private void cmbCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string campo = cmbCampo.SelectedItem.ToString();
+            this.CargarCriterio(campo);
+        }
+
+        private void CargarCampoComboBox()
+        {
+            cmbCampo.Items.Add("Marca");
+            cmbCampo.Items.Add("Precio");
+            cmbCampo.Items.Add("Categoría");
+        }
+        private void CargarCriterio(string campo)
+        {
+            if (campo == "Precio")
+            {
+                cmbCriterio.Items.Clear();
+                cmbCriterio.Items.Add("Menor a");
+                cmbCriterio.Items.Add("Mayor a");
+                cmbCriterio.Items.Add("Igual a");
+            }
+            else
+            {
+                cmbCriterio.Items.Clear();
+                cmbCriterio.Items.Add("Comienza con");
+                cmbCriterio.Items.Add("Termina con");
+                cmbCriterio.Items.Add("Contiene");
+            }
+        }
+
+        private void btnFiltroAvanzado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(this.ValidarCampo() && this.ValidarCriterio())
+                {
+ 
+                    string criterio = cmbCriterio.SelectedItem.ToString();
+                    string campo = cmbCampo.SelectedItem.ToString();
+                    string filtro = txtFiltroAvanzado.Text;
+                    if(criterio == "Precio")
+                    {
+                        if (ValidarArticulo.ValidarPrecio(filtro))
+                        {
+                            this.ListaFiltrada(criterio,campo,filtro);//Verifico que no ingreso ningúna letra
+                        }
+                    }
+                    else
+                    {
+                        if (ValidarArticulo.ValidarTexto(filtro))
+                        {
+                            this.ListaFiltrada(criterio, campo, filtro);
+                        }
+                    }
+                    
+                }
+            }
+            catch (AccesoDatosException ex)
+            {
+                throw ex;
+            }
+            catch(CampoInvalidoException ex)
+            {
+                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (PrecioInvalidoException ex)
+            {
+                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private bool ValidarCriterio()
+        {
+            if (this.cmbCriterio.SelectedIndex < 0)
+            {
+                throw new CampoInvalidoException("Por favor, seleccione el critero a filtrar");
+            }
+            return true;
+        }
+        private bool ValidarCampo()
+        {
+            if (this.cmbCampo.SelectedIndex < 0)
+            {
+                throw new CampoInvalidoException("Por favor, seleccione el campo a filtrar");
+            }
+            return true;
+        }
+        private void ListaFiltrada(string criterio, string campo, string filtro)
+        {
+            this.dgvArticulos.DataSource = null;
+            this.dgvArticulos.DataSource = this.negocio.Filtrar(criterio, campo, filtro);
         }
     }
 }

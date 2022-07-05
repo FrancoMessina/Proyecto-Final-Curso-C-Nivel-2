@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
+using Negocio.Excepciones;
 namespace Negocio
 {
     public class MarcaNegocio

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Negocio
+namespace Negocio.Excepciones
 {
     public class AccesoDatosException : Exception
     {

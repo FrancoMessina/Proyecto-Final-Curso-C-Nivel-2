@@ -42,12 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
-    <Compile Include="AccesoDatosException.cs" />
     <Compile Include="ArticuloNegocio.cs" />
     <Compile Include="CategoriaNegocio.cs" />
+    <Compile Include="Excepciones\AccesoDatosException.cs" />
     <Compile Include="Excepciones\ArticuloNoExistenteException.cs" />
     <Compile Include="Excepciones\CampoInvalidoException.cs" />
     <Compile Include="Excepciones\CamposVaciosONullException.cs" />
+    <Compile Include="Excepciones\ControlInvalidoException.cs" />
     <Compile Include="Excepciones\PrecioInvalidoException.cs" />
     <Compile Include="MarcaNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

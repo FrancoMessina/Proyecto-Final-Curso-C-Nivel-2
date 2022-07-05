@@ -45,5 +45,23 @@ namespace Negocio.ValidacionesArticulo
             }
             return true;
         }
+        public static bool ValidarTexto(string dato)
+        {
+            if (!VerificarSoloLetras(dato))
+            {
+                throw new CampoInvalidoException("Ingresar solo letras");
+            }
+            return true;
+        }
+        private static bool VerificarSoloLetras(string dato)
+        {
+            foreach (char letra in dato)
+            {
+                if (!char.IsLetter(letra))
+                    return false;
+            }
+            return true;
+        }
+
     }
 }
