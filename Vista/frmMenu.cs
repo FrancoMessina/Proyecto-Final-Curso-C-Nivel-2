@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio;
 using Dominio;
+using Negocio.Excepciones;
 namespace Vista
 {
     public partial class frmMenu : Form
@@ -79,6 +80,36 @@ namespace Vista
             {
                 throw ex;
             }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ValidarArticuloSeleccionado())
+                {
+                    Articulo articulo = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    frmModificarArticulo ventanaModificar = new frmModificarArticulo(articulo);
+                    ventanaModificar.ShowDialog();
+                    this.ActualizarLista();
+                }
+            }
+            catch(ArticuloNoExistenteException ex)
+            {
+                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private bool ValidarArticuloSeleccionado()
+        {
+            if (this.dgvArticulos.CurrentRow is null)
+            {
+                throw new ArticuloNoExistenteException("No hay ningun Articulo seleccionado");
+            }
+            return true;
         }
     }
 }

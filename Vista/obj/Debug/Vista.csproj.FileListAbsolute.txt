@@ -15,3 +15,4 @@ C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\V
 C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.exe
 C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.pdb
 C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.frmNuevoArticulo.resources
+C:\Users\franc\OneDrive\Escritorio\TPFinalNivel2_Messina\TPFinalNivel2_Messina\Vista\obj\Debug\Vista.frmModificarArticulo.resources
