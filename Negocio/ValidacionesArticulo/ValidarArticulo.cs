@@ -27,9 +27,9 @@ namespace Negocio.ValidacionesArticulo
         }
         public static bool ValidarImagen(string url)
         {
-            if (url.Length > 149 || url.Length < 5)
+            if (url.Length < 5)
             {
-                throw new CampoInvalidoException("El campo tiene que tener más de 5 caracteres y menos de 149");
+                throw new CampoInvalidoException("El campo tiene que tener más de 5 caracteres");
             }
             return true;
         }

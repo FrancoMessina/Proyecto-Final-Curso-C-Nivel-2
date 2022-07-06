@@ -201,7 +201,7 @@ namespace Vista
                     string criterio = cmbCriterio.SelectedItem.ToString();
                     string campo = cmbCampo.SelectedItem.ToString();
                     string filtro = txtFiltroAvanzado.Text;
-                    if(criterio == "Precio")
+                    if(campo == "Precio")
                     {
                         if (ValidarArticulo.ValidarPrecio(filtro))
                         {
@@ -215,7 +215,7 @@ namespace Vista
                             this.ListaFiltrada(criterio, campo, filtro);
                         }
                     }
-                    
+                    this.OcultarColumnas();
                 }
             }
             catch (AccesoDatosException ex)
@@ -251,6 +251,20 @@ namespace Vista
         {
             this.dgvArticulos.DataSource = null;
             this.dgvArticulos.DataSource = this.negocio.Filtrar(criterio, campo, filtro);
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ActualizarLista();
+                this.CargarCampoComboBox();
+            }
+            catch (AccesoDatosException ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

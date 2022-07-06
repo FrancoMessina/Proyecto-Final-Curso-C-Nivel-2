@@ -11,6 +11,7 @@ using Negocio;
 using Dominio;
 using Negocio.Excepciones;
 using Negocio.ValidacionesArticulo;
+using System.IO;
 
 namespace Vista
 {
@@ -20,6 +21,8 @@ namespace Vista
         private CategoriaNegocio categoriaNegocio;
         private ArticuloNegocio articuloNegocio;
         private Articulo articulo;
+        private OpenFileDialog archivo = null;
+        private string rutaBase;
         public frmModificarArticulo(Articulo articulo)
         {
             InitializeComponent();
@@ -27,6 +30,8 @@ namespace Vista
             this.categoriaNegocio = new CategoriaNegocio();
             this.articuloNegocio = new ArticuloNegocio();
             this.articulo = articulo;
+            DirectoryInfo directoryInfo = Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Articulos-App\\");
+            this.rutaBase = directoryInfo.FullName;
         }
         private void frmModificarArticulo_Load(object sender, EventArgs e)
         {
@@ -102,6 +107,10 @@ namespace Vista
                         articulo.Categoria = (Categoria)cmbCategoria.SelectedItem;
                         articulo.Precio = decimal.Parse(txtPrecio.Text);
                         string mensaje = articuloNegocio.ModificarArticulo(articulo);
+                        if (this.archivo != null && !(txtImagen.Text.ToUpper().Contains("HTTP")))
+                        {
+                            this.GuardarImagen();
+                        }
                         MessageBox.Show(mensaje, "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
                     }
@@ -123,6 +132,22 @@ namespace Vista
             {
                 MessageBox.Show("Error.Ingrese los datos nuevamente!");
             }
+        }
+
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            this.archivo = new OpenFileDialog();
+            this.archivo.Filter = "jpg|*.jpg;|png|*.png";
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                this.txtImagen.Text = archivo.FileName;
+                this.CargarImagen(txtImagen.Text);
+            }
+        }
+        private void GuardarImagen()
+        {
+            string rutaFinal = $"{rutaBase}{DateTime.Now.ToString("h-m-ss")}{Path.GetFileNameWithoutExtension(archivo.FileName)}.jpg";
+            File.Copy(archivo.FileName, rutaFinal);
         }
     }
 }
